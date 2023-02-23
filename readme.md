@@ -8,6 +8,8 @@ https://wareya.itch.io/nostalgiac-blues
 
 Won #1 for Gameplay, #2 for Overall, and #3 for Challenge in Touhou Fan Game Jam 10!!! https://itch.io/jam/touhou-jam-10 https://itch.io/jam/touhou-jam-10/results
 
+![GpaK+I](https://user-images.githubusercontent.com/585488/220948200-21fc7934-2036-476f-b565-36076dbd15f0.png)
+
 # Original Credits (jam version)
 
 Wareya: All original elements (gameplay, sound, music, art, etc)
@@ -30,4 +32,10 @@ Uses the SmartShape2D addon for Godot 3, under the MIT license: https://github.c
 
 # Screenshots
 
-TBD
+![wnjVMS](https://user-images.githubusercontent.com/585488/220948155-6cf12f53-26d8-4e9b-b0b8-3b7e8338bd05.png)
+
+![nlcVNT](https://user-images.githubusercontent.com/585488/220948163-b7849d76-aa7e-44a6-b33d-e1ee7f7b9455.png)
+
+![g7FhAW](https://user-images.githubusercontent.com/585488/220948175-bfd8e81e-5bbb-4c0c-af8b-cdd8af8829a2.png)
+
+
