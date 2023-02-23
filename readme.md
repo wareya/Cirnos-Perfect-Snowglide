@@ -4,7 +4,7 @@ An ice physics platformer Touhou fangame made in Godot 3.5, for Touhou Fan Game 
 
 Cirno goes snowboarding!
 
-https://wareya.itch.io/nostalgiac-blues
+https://wareya.itch.io/cirnos-perfect-snowglide
 
 Won #1 for Gameplay, #2 for Overall, and #3 for Challenge in Touhou Fan Game Jam 10!!! https://itch.io/jam/touhou-jam-10 https://itch.io/jam/touhou-jam-10/results
 
