@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://font/FontSmall.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Title Screen Background.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Main Menu.gd" type="Script" id=3]
+[ext_resource path="res://assets/Title Screen Image.png" type="Texture" id=4]
+[ext_resource path="res://assets/Title Screen Logo.png" type="Texture" id=5]
+[ext_resource path="res://assets/Title Screen Image 2.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Main Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
+
+[node name="Sprite3" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer2"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="Buttons" type="GridContainer" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -362.0
+margin_top = 369.0
+margin_right = 350.0
+margin_bottom = -52.0
+columns = 4
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.501961 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -449.0
+margin_top = 47.0
+margin_right = 426.0
+margin_bottom = -20.0
+focus_mode = 2
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Records[/center]"
+text = "Records"
+selection_enabled = true
+
+[node name="ClearButton" type="Button" parent="CanvasLayer"]
+visible = false
+margin_left = 10.0
+margin_top = 26.0
+margin_right = 211.0
+margin_bottom = 46.0
+focus_mode = 1
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = SubResource( 1 )
+text = "Clear Records (click 10 times)"
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+position = Vector2( 670, 354 )
+zoom = Vector2( 0.333, 0.333 )

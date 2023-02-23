@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PushLoop.wav-f16f9c89d809fcbd12da650825ddb2bc.sample"
+
+[deps]
+
+source_file="res://sounds/PushLoop.wav"
+dest_files=[ "res://.import/PushLoop.wav-f16f9c89d809fcbd12da650825ddb2bc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

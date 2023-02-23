@@ -1,0 +1,330 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/editor_input_map/editor_input_map.gd" type="Script" id=1]
+
+[node name="EditorInputMap" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="InputMap" type="WindowDialog" parent="."]
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+resizable = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Margin" type="MarginContainer" parent="InputMap"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="InputMap/Margin"]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Top" type="HBoxContainer" parent="InputMap/Margin/VBox"]
+margin_right = 1024.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="InputMap/Margin/VBox/Top"]
+margin_top = 5.0
+margin_right = 45.0
+margin_bottom = 19.0
+text = "Action:"
+
+[node name="LineEdit" type="LineEdit" parent="InputMap/Margin/VBox/Top"]
+margin_left = 49.0
+margin_right = 983.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+caret_blink = true
+
+[node name="Warning" type="Label" parent="InputMap/Margin/VBox/Top"]
+visible = false
+margin_left = 721.0
+margin_top = 5.0
+margin_right = 983.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "An action with the name '' already exists."
+
+[node name="Add" type="Button" parent="InputMap/Margin/VBox/Top"]
+margin_left = 987.0
+margin_right = 1024.0
+margin_bottom = 24.0
+disabled = true
+text = "Add"
+
+[node name="Panel" type="Panel" parent="InputMap/Margin/VBox"]
+margin_top = 28.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_vertical = 3
+
+[node name="VBox" type="VBoxContainer" parent="InputMap/Margin/VBox/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="PanelContainer" parent="InputMap/Margin/VBox/Panel/VBox"]
+margin_right = 1024.0
+margin_bottom = 28.0
+
+[node name="HBox" type="HBoxContainer" parent="InputMap/Margin/VBox/Panel/VBox/Panel"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 21.0
+
+[node name="Action" type="Label" parent="InputMap/Margin/VBox/Panel/VBox/Panel/HBox"]
+margin_right = 670.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "Action"
+align = 1
+
+[node name="Deadzone" type="Label" parent="InputMap/Margin/VBox/Panel/VBox/Panel/HBox"]
+margin_left = 674.0
+margin_right = 1010.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Deadzone"
+align = 1
+
+[node name="Scroll" type="ScrollContainer" parent="InputMap/Margin/VBox/Panel/VBox"]
+margin_top = 32.0
+margin_right = 1024.0
+margin_bottom = 572.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Actions" type="VBoxContainer" parent="InputMap/Margin/VBox/Panel/VBox/Scroll"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="KeyConfirm" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -35.0
+margin_right = 100.0
+margin_bottom = 35.0
+popup_exclusive = true
+resizable = true
+dialog_text = "Press a key..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoyButtonConfirm" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -194.0
+margin_top = -41.0
+margin_right = 194.0
+margin_bottom = 41.0
+resizable = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="JoyButtonConfirm"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="HBoxContainer" parent="JoyButtonConfirm/VBox"]
+margin_right = 372.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="JoyButtonConfirm/VBox/Labels"]
+margin_right = 184.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Device:"
+
+[node name="Label2" type="Label" parent="JoyButtonConfirm/VBox/Labels"]
+margin_left = 188.0
+margin_right = 372.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Joypad Button Index:"
+
+[node name="OptionButtons" type="HBoxContainer" parent="JoyButtonConfirm/VBox"]
+margin_top = 18.0
+margin_right = 372.0
+margin_bottom = 38.0
+
+[node name="Device" type="OptionButton" parent="JoyButtonConfirm/VBox/OptionButtons"]
+margin_right = 85.0
+margin_bottom = 20.0
+text = "Device 0"
+items = [ "All Devices", null, false, 0, null, "Device 0", null, false, 1, null, "Device 1", null, false, 2, null, "Device 2", null, false, 3, null, "Device 3", null, false, 4, null, "Device 4", null, false, 5, null, "Device 5", null, false, 6, null, "Device 6", null, false, 7, null, "Device 7", null, false, 8, null ]
+selected = 1
+
+[node name="Index" type="OptionButton" parent="JoyButtonConfirm/VBox/OptionButtons"]
+margin_left = 89.0
+margin_right = 372.0
+margin_bottom = 20.0
+text = "0: DualShock Cross, XBox A, Nintendo B"
+items = [ "0: DualShock Cross, XBox A, Nintendo B", null, false, 0, null, "1: DualShock Circle, Xbox B, Nintendo A", null, false, 1, null, "2: DualShock Square, Xbox X, Nintendo Y", null, false, 2, null, "3: DualShock Triangel, Xbox Y, Nintendo X", null, false, 3, null, "4: L, L1", null, false, 4, null, "5: R, R1", null, false, 5, null, "6: L2", null, false, 6, null, "7: R2", null, false, 7, null, "8: L3", null, false, 8, null, "9: R3", null, false, 9, null, "10: Select, DualShock Share, Nintendo -", null, false, 10, null, "11: Start, DualShock Options, Nintendo +", null, false, 11, null, "12: D-Pad Up", null, false, 12, null, "13: D-Pad Down", null, false, 13, null, "14: D-Pad Left", null, false, 14, null, "15: D-Pad Right", null, false, 15, null, "16: Home, DualShock PS, Guide", null, false, 16, null, "17: Xbox Share, PS5 Microphone, Nintendo Capture", null, false, 17, null, "18: Xbox Paddle 1", null, false, 18, null, "19: Xbox Paddle 2", null, false, 19, null, "20: Xbox Paddle 3", null, false, 20, null, "21: Xbox Paddle 4", null, false, 21, null, "22: PS4/5 Touchpad", null, false, 22, null ]
+selected = 0
+
+[node name="JoyAxisConfirm" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -140.0
+margin_top = -41.0
+margin_right = 140.0
+margin_bottom = 41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="JoyAxisConfirm"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="HBoxContainer" parent="JoyAxisConfirm/VBox"]
+margin_right = 264.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="JoyAxisConfirm/VBox/Labels"]
+margin_right = 130.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Device:"
+
+[node name="Label2" type="Label" parent="JoyAxisConfirm/VBox/Labels"]
+margin_left = 134.0
+margin_right = 264.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Joypad Axis Index:"
+
+[node name="OptionButtons" type="HBoxContainer" parent="JoyAxisConfirm/VBox"]
+margin_top = 18.0
+margin_right = 264.0
+margin_bottom = 38.0
+
+[node name="Device" type="OptionButton" parent="JoyAxisConfirm/VBox/OptionButtons"]
+margin_right = 85.0
+margin_bottom = 20.0
+text = "Device 0"
+items = [ "All Devices", null, false, 0, null, "Device 0", null, false, 1, null, "Device 1", null, false, 2, null, "Device 2", null, false, 3, null, "Device 3", null, false, 4, null, "Device 4", null, false, 5, null, "Device 5", null, false, 6, null, "Device 6", null, false, 7, null, "Device 7", null, false, 8, null ]
+selected = 1
+
+[node name="Index" type="OptionButton" parent="JoyAxisConfirm/VBox/OptionButtons"]
+margin_left = 89.0
+margin_right = 264.0
+margin_bottom = 20.0
+text = "Axis 0 - (Left Stick Left)"
+items = [ "Axis 0 - (Left Stick Left)", null, false, 0, null, "Axis 0 + (Left Stick Right)", null, false, 1, null, "Axis 1 - (Left Stick Up)", null, false, 2, null, "Axis 1 + (Left Stick Down)", null, false, 3, null, "Axis 2 - (Right Stick Left)", null, false, 4, null, "Axis 2 + (Right Stick Right)", null, false, 5, null, "Axis 3 - (Right Stick Up)", null, false, 6, null, "Axis 3 + (Right Stick Down)", null, false, 7, null, "Axis 4 -", null, false, 8, null, "Axis 4 +", null, false, 9, null, "Axis 5 -", null, false, 10, null, "Axis 5 +", null, false, 11, null, "Axis 6 -", null, false, 12, null, "Axis 6 + (L2)", null, false, 13, null, "Axix 7 -", null, false, 14, null, "Axis 7 + (R2)", null, false, 15, null, "Axis 8 -", null, false, 16, null, "Axis 8 +", null, false, 17, null, "Axis 9 -", null, false, 18, null, "Axis 9 +", null, false, 19, null ]
+selected = 0
+
+[node name="MouseConfirm" type="ConfirmationDialog" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -41.0
+margin_right = 102.5
+margin_bottom = 41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="MouseConfirm"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = -8.0
+margin_bottom = -36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="HBoxContainer" parent="MouseConfirm/VBox"]
+margin_right = 189.0
+margin_bottom = 14.0
+
+[node name="Label" type="Label" parent="MouseConfirm/VBox/Labels"]
+margin_right = 51.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Device:"
+
+[node name="Label2" type="Label" parent="MouseConfirm/VBox/Labels"]
+margin_left = 55.0
+margin_right = 189.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Mouse Button Index:"
+
+[node name="OptionButtons" type="HBoxContainer" parent="MouseConfirm/VBox"]
+margin_top = 18.0
+margin_right = 189.0
+margin_bottom = 38.0
+
+[node name="Device" type="OptionButton" parent="MouseConfirm/VBox/OptionButtons"]
+margin_right = 85.0
+margin_bottom = 20.0
+text = "Device 0"
+items = [ "All Devices", null, false, 0, null, "Device 0", null, false, 1, null, "Device 1", null, false, 2, null, "Device 2", null, false, 3, null, "Device 3", null, false, 4, null, "Device 4", null, false, 5, null, "Device 5", null, false, 6, null, "Device 6", null, false, 7, null, "Device 7", null, false, 8, null ]
+selected = 1
+
+[node name="Index" type="OptionButton" parent="MouseConfirm/VBox/OptionButtons"]
+margin_left = 89.0
+margin_right = 189.0
+margin_bottom = 20.0
+text = "Left Button"
+items = [ "Left Button", null, false, 0, null, "Right Button", null, false, 1, null, "Middle Button", null, false, 2, null, "Wheel Up Button", null, false, 3, null, "Wheel Down Button", null, false, 4, null, "Wheel Left Button", null, false, 5, null, "Wheel Right Button", null, false, 6, null, "X Button 1", null, false, 7, null, "X Button 2", null, false, 8, null ]
+selected = 0
+
+[connection signal="text_changed" from="InputMap/Margin/VBox/Top/LineEdit" to="." method="_on_LineEdit_text_changed"]
+[connection signal="text_entered" from="InputMap/Margin/VBox/Top/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="InputMap/Margin/VBox/Top/Add" to="." method="add_action"]
+[connection signal="confirmed" from="KeyConfirm" to="." method="_on_KeyConfirm_confirmed"]
+[connection signal="confirmed" from="JoyButtonConfirm" to="." method="_on_JoyButtonConfirm_confirmed"]
+[connection signal="confirmed" from="JoyAxisConfirm" to="." method="_on_JoyAxisConfirm_confirmed"]
+[connection signal="confirmed" from="MouseConfirm" to="." method="_on_MouseConfirm_confirmed"]

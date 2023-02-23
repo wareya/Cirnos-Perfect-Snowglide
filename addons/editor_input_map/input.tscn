@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/editor_input_map/input.gd" type="Script" id=1]
+
+[node name="Input" type="HBoxContainer"]
+margin_right = 83.0
+margin_bottom = 14.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+margin_top = 3.0
+margin_right = 83.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+text = "Action Name"
+
+[node name="Edit" type="Button" parent="."]
+margin_left = 87.0
+margin_right = 123.0
+margin_bottom = 20.0
+text = "Edit"
+
+[node name="Delete" type="Button" parent="."]
+margin_left = 127.0
+margin_right = 182.0
+margin_bottom = 20.0
+text = "Delete"
+
+[connection signal="pressed" from="Edit" to="." method="_on_Edit_pressed"]
+[connection signal="pressed" from="Delete" to="." method="_on_Delete_pressed"]

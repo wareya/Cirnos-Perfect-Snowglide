@@ -1,0 +1,285 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://singletons/Manager.gd" type="Script" id=1]
+[ext_resource path="res://bgm/cirno snowboarding bgm.ogg" type="AudioStream" id=2]
+[ext_resource path="res://scenes/CustomParallax.gd" type="Script" id=3]
+[ext_resource path="res://assets/snowsheet.png" type="Texture" id=4]
+[ext_resource path="res://singletons/Minimap.gd" type="Script" id=5]
+[ext_resource path="res://font/BubblegumSans-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://singletons/ButtonB.tres" type="StyleBox" id=7]
+[ext_resource path="res://singletons/ButtonA.tres" type="StyleBox" id=8]
+[ext_resource path="res://singletons/ButtonFocus.tres" type="StyleBox" id=9]
+[ext_resource path="res://addons/editor_input_map/editor_input_map.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ChirpyButton.gd" type="Script" id=11]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+
+void fragment() {
+	vec3 n_out2p0 = COLOR.rgb;
+	COLOR.rgb = n_out2p0;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=18]
+blend_mode = 2
+
+[sub_resource type="Gradient" id=19]
+offsets = PoolRealArray( 0.126263, 1 )
+colors = PoolColorArray( 0.200844, 0.380859, 0.336559, 1, 0.806641, 0.784486, 0.579773, 1 )
+
+[sub_resource type="GradientTexture2D" id=20]
+gradient = SubResource( 19 )
+fill_from = Vector2( 0.5, 1 )
+fill_to = Vector2( 0.5, 0 )
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[node name="Manager" type="CanvasLayer"]
+layer = 50
+script = ExtResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+bus = "Music"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Label" type="Label" parent="CanvasLayer3"]
+margin_right = 40.0
+margin_bottom = 14.0
+mouse_filter = 1
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+
+[node name="Speedometer" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -860.0
+margin_top = 15.0
+margin_right = -22.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 6 )
+align = 2
+
+[node name="StageTimer" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -861.0
+margin_top = 66.0
+margin_right = -23.0
+margin_bottom = 152.0
+custom_fonts/font = SubResource( 6 )
+align = 2
+
+[node name="AirTimer" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -862.0
+margin_top = 127.0
+margin_right = -24.0
+margin_bottom = 213.0
+custom_fonts/font = SubResource( 6 )
+align = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enable = true
+
+[node name="BG" type="Node2D" parent="CanvasLayer"]
+script = ExtResource( 3 )
+texture = ExtResource( 4 )
+coord_scale = Vector2( 0.6, 0.6 )
+autoscroll = Vector2( 0, -6 )
+mirror_y = false
+
+[node name="BG2" type="Node2D" parent="CanvasLayer"]
+script = ExtResource( 3 )
+texture = ExtResource( 4 )
+coord_scale = Vector2( 0.6, 0.6 )
+autoscroll = Vector2( 0, -8 )
+mirror_y = false
+
+[node name="BG3" type="Node2D" parent="CanvasLayer"]
+script = ExtResource( 3 )
+texture = ExtResource( 4 )
+coord_scale = Vector2( 0.8, 0.8 )
+autoscroll = Vector2( 0, -6 )
+mirror_y = false
+
+[node name="BG4" type="Node2D" parent="CanvasLayer"]
+script = ExtResource( 3 )
+texture = ExtResource( 4 )
+coord_scale = Vector2( 0.8, 0.8 )
+autoscroll = Vector2( 0, -8 )
+mirror_y = false
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="FG" type="Node2D" parent="CanvasLayer2"]
+script = ExtResource( 3 )
+texture = ExtResource( 4 )
+autoscroll = Vector2( 0, -6 )
+mirror_y = false
+
+[node name="FG2" type="Node2D" parent="CanvasLayer2"]
+script = ExtResource( 3 )
+texture = ExtResource( 4 )
+autoscroll = Vector2( 0, -8 )
+mirror_y = false
+
+[node name="FG3" type="Node2D" parent="CanvasLayer2"]
+script = ExtResource( 3 )
+texture = ExtResource( 4 )
+coord_scale = Vector2( 2, 2 )
+autoscroll = Vector2( 0, -6 )
+mirror_y = false
+
+[node name="FG4" type="Node2D" parent="CanvasLayer2"]
+script = ExtResource( 3 )
+texture = ExtResource( 4 )
+coord_scale = Vector2( 2, 2 )
+autoscroll = Vector2( 0, -6 )
+mirror_y = false
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+material = SubResource( 5 )
+margin_left = 24.0
+margin_top = 25.0
+margin_right = 280.0
+margin_bottom = 169.0
+mouse_filter = 2
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 256, 144 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+
+[node name="Minimap" type="Node2D" parent="ViewportContainer/Viewport"]
+script = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 11.0
+margin_top = 47.0
+margin_right = 499.0
+margin_bottom = 672.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+autowrap = true
+
+[node name="Fader" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 125
+
+[node name="BG" type="TextureRect" parent="PauseMenu"]
+material = SubResource( 18 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 20 )
+stretch_mode = 1
+
+[node name="ReturnToGame" type="Button" parent="PauseMenu/BG"]
+margin_left = 221.0
+margin_top = 206.0
+margin_right = 558.0
+margin_bottom = 278.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 9 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = ExtResource( 8 )
+text = "Return to Game"
+script = ExtResource( 11 )
+
+[node name="ToggleParticles" type="Button" parent="PauseMenu/BG"]
+margin_left = 239.0
+margin_top = 291.0
+margin_right = 576.0
+margin_bottom = 363.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 9 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = ExtResource( 8 )
+text = "Toggle Particles"
+script = ExtResource( 11 )
+
+[node name="OpenInputEditor" type="Button" parent="PauseMenu/BG"]
+margin_left = 257.0
+margin_top = 376.0
+margin_right = 649.0
+margin_bottom = 448.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 9 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = ExtResource( 8 )
+text = "Open Input Configurator"
+script = ExtResource( 11 )
+
+[node name="RestartStage" type="Button" parent="PauseMenu/BG"]
+margin_left = 277.0
+margin_top = 463.0
+margin_right = 614.0
+margin_bottom = 535.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 9 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = ExtResource( 8 )
+text = "Restart Stage"
+script = ExtResource( 11 )
+
+[node name="ReturnToMain" type="Button" parent="PauseMenu/BG"]
+margin_left = 296.0
+margin_top = 550.0
+margin_right = 633.0
+margin_bottom = 622.0
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 8 )
+custom_styles/focus = ExtResource( 9 )
+custom_styles/disabled = SubResource( 14 )
+custom_styles/normal = ExtResource( 8 )
+text = "Return to Main Menu"
+script = ExtResource( 11 )
+
+[node name="EditorInputMap" parent="." instance=ExtResource( 10 )]
+layer = 128
+visible = false

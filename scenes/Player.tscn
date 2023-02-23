@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/snowbig.png" type="Texture" id=2]
+[ext_resource path="res://sounds/PushLoopGrass.wav" type="AudioStream" id=3]
+[ext_resource path="res://assets/0-ufeff_tiles_v2.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 6.8
+
+[sub_resource type="Gradient" id=157]
+offsets = PoolRealArray( 0.562893, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[node name="Player" type="KinematicBody2D" groups=["Player"]]
+position = Vector2( -44, -3 )
+collision_layer = 2
+collision_mask = 5
+collision/safe_margin = 0.2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+texture = ExtResource( 4 )
+offset = Vector2( 0, -1 )
+hframes = 4
+region_enabled = true
+region_rect = Rect2( 0, 32, 64, 16 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+show_behind_parent = true
+texture = ExtResource( 4 )
+offset = Vector2( 0, -1 )
+region_enabled = true
+region_rect = Rect2( 208, 192, 16, 16 )
+
+[node name="Camera2D" type="Camera2D" parent="." groups=["Camera"]]
+current = true
+zoom = Vector2( 0.333, 0.333 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -80.0
+autoplay = true
+bus = "SFX"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+emitting = false
+amount = 1000
+lifetime = 2.0
+randomness = 1.0
+lifetime_randomness = 0.18
+local_coords = false
+texture = ExtResource( 2 )
+gravity = Vector2( 0, 200 )
+initial_velocity = 96.51
+initial_velocity_random = 0.24
+color_ramp = SubResource( 157 )
